@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Money</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1 class="title">
+    Довольны ли Вы своей зарплатой?
+  </h1>
+  <div class="app">
+    <div class="action">
+      <button class="btn action__btn action__btn--yes">ДА</button>
+      <button class="btn action__btn action__btn--no">НЕТ</button>
+    </div>
+    <div class="modal modal--yes">
+      <p class="modal__text">- ДА!</p>
+      <p class="modal__text">- Я так и знал :D</p>
+      <img class="img--yes" src="img/harold.jpg" alt="">
+      <button class="modal__btn btn">Я передумал...</button>
+    </div>
+    <div class="modal modal--no">
+      <p class="modal__text">
+        A problem has been detected and Windows has been shut down to prevent damage
+        to your computer. </p>
+      <p class="modal__text">
+        The problem seems to be caused by the following file: xNtKrnl.exe</p>
+      <p class="modal__text">
+        SYSTEM_THREAD_EXCEPTION_NOT_HANDLED</p>
+      <p class="modal__text">
+        If this is the first time you've seen this stop error screen,
+        restart your computer. If this screen appears again, follow
+        these steps:</p>
+      <p class="modal__text">
+        Check to make sure any new hardware or software is properly installed.
+        If this is a new installation, ask your hardware or software manufacturer
+        for any Windows updates you might need.</p>
+      <p class="modal__text">
+        If problems continue, disable or remove any newly installed hardware
+        or software. Disable BIOS memory options such as caching or shadowing.
+        If you need to use safe mode to remove or disable components, restart
+        your computer, press F8 to select Advanced Startup Options, and then
+        select Safe Mode.</p>
+      <p class="modal__text">
+        Technical Information:</p>
+      <p class="modal__text">
+        *** STOP: 0x1000007e (0xffffffffc0000005, 0xfffff80002e55151, 0xfffff880009a99d8,
+        0xfffff880009a9230)</p>
+      <p class="modal__text">
+        *** xNtKrnl.exe - Address 0xfffff80002e55151 base at 0xfffff80002e0d000 DateStamp
+        0x4ce7951a
+      </p>
+    </div>
+  </div>
+
+  <audio id="successSound">
+    <source src="media/success.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="errorSound">
+    <source src="media/error.mp3" type="audio/mpeg">
+  </audio>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

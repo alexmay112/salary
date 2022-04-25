@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'Lucida console';
+  font-display: swap;
+  src: url('../fonts/6622-webfont.woff2') format('woff2'),
+    url('../fonts/6622-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes blink-animation {
+  from {
+    color: #000;
+  }
+
+  50% {
+    color: red;
+  }
+
+  100% {
+    color: #000;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  from {
+    color: #000;
+  }
+
+  50% {
+    color: red;
+  }
+
+  100% {
+    color: #000;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  font-size: 14px;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+
+body.nophone {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.action {
+  height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  padding: 20px 0;
+  color: #000;
+  background-color: #fff;
+  font-size: 30px;
+}
+
+
+.modal {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+}
+
+.modal--yes {
+  background: #000;
+}
+
+.modal--yes.active {
+  display: flex;
+}
+
+.modal--no {
+  padding: 10px;
+  background-color: #000082;
+}
+
+.modal__text {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.modal--no .modal__text {
+  margin-bottom: 20px;
+  text-transform: none;
+  font-weight: 400;
+  text-align: left;
+  font-family: "Lucida console", sans-serif;
+}
+
+.modal--no .modal__text:last-child {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn {
+  min-width: 100px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: white;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  transition: .8s cubic-bezier(.165, .84, .44, 1);
+  background-color: #000;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #fffb00;
+}
+
+.modal__btn {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 2s;
+  border: 1px solid #fffb00;
+}
+
+.modal__btn.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.action__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.action__btn--no {
+  max-width: 200px;
+  left: calc(50% + 20px);
+  border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+  border-image-slice: 1;
+  z-index: 10;
+}
+
+.action__btn--yes {
+  left: calc(50% - 120px);
+  border-image: linear-gradient(180deg, #15ff00, #10c500, #b3ff00, #90ce00);
+  border-image-slice: 1;
+  z-index: 5;
+}
+
+.action__btn:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100%;
+  z-index: -1;
+  color: white;
+  transition: .3s cubic-bezier(.165, .84, .44, 1);
+}
+
+.action__btn--no:before {
+  background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+}
+
+.action__btn--yes:before {
+  background: linear-gradient(180deg, #15ff00, #10c500, #b3ff00, #90ce00);
+}
+
+.action__btn:hover {
+  background: rgb(0, 0, 0);
+}
+
+.action__btn:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+
+.btn--master {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  animation: blink-animation 2s steps(1, start) infinite;
+}
+
+.btn--master:hover {
+  background: #10c500;
+}
+
+.btn--master::before {
+  display: none;
+}
+
+.img--yes {
+  width: 280px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
